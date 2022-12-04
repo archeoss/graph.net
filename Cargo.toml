@@ -1,0 +1,14 @@
+[package]
+name = "graph-net"
+version = "0.1.0"
+edition = "2021"
+authors = ["Simeon Romanov <archeosAnacritis@gmail.com>"]
+description = "A graph network implementation in Rust"
+license = "GNU General Public License v3.0"
+
+[dependencies]
+reqwest = { version = "0.11", features = ["blocking"] }
+
+[lib]
+name = "graph_net"
+crate-type = ["dylib"]
