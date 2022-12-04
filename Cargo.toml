@@ -11,4 +11,10 @@ reqwest = { version = "0.11", features = ["blocking"] }
 
 [lib]
 name = "graph_net"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "staticlib"]
+
+[profile.release] # Optimized for code size (https://github.com/johnthagen/min-sized-rust)
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = 'abort'

@@ -1,11 +1,7 @@
-ifeq ($(shell uname),Darwin)
-    EXT := dylib
-else
-    EXT := so
-endif
+EXT := so
 
 all: lib/libgraph_net.$(EXT)
-	g++ src/main.cpp -L ./lib -lgraph_net -o run
+	g++ -L./lib -lssl -lcrypto -lgraph_net src/main.cpp -o run 
 	LD_LIBRARY_PATH=./lib ./run
 
 lib/libgraph_net.$(EXT): src/lib.rs Cargo.toml
